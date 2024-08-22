@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctoral Database</title>
+</head>
+<body>
+    <h1>Doctoral Database</h1>
+    <h2>PhD Students</h2>
+    <table border="1">
+        <tr>
+            <th>StudentId</th>
+            <th>FName</th>
+            <th>LName</th>
+            <th>StSem</th>
+            <th>StYear</th>
+            <th>Supervisor</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student['StudentId'] }}</td>
+            <td>{{ student['FName'] }}</td>
+            <td>{{ student['LName'] }}</td>
+            <td>{{ student['StSem'] }}</td>
+            <td>{{ student['StYear'] }}</td>
+            <td>{{ student['Supervisor'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Scholarships</h2>
+    <table border="1">
+        <tr>
+            <th>ScholarshipID</th>
+            <th>Type</th>
+            <th>Source</th>
+            <th>FundingCountry</th>
+            <th>FundingOrganization</th>
+        </tr>
+        {% for scholarship in scholarships %}
+        <tr>
+            <td>{{ scholarship['ScholarshipID'] }}</td>
+            <td>{{ scholarship['Type'] }}</td>
+            <td>{{ scholarship['Source'] }}</td>
+            <td>{{ scholarship['FundingCountry'] }}</td>
+            <td>{{ scholarship['FundingOrganization'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Options</h2>
+    <a href="{{ url_for('insert_instructor') }}">Insert Instructor</a><br>
+    <a href="{{ url_for('update_instructor') }}">Update Instructor</a><br>
+    <a href="{{ url_for('delete_gra') }}">Delete GRA Student</a>
+</body>
+</html>
